@@ -1,0 +1,142 @@
+/* Общие настройки страницы и живого фона */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Прячем полосы прокрутки, чтобы лепестки не растягивали экран */
+    color: #ffffff;
+    
+    /* Твой скачанный фон дерева/природы */
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
+    /* Анимация плавного живого покачивания заднего плана */
+    animation: liveBackground 20s ease-in-out infinite alternate;
+}
+
+/* Эффект легкого покачивания веток от ветра */
+@keyframes liveBackground {
+    0% { transform: scale(1.01) translate(0px, 0px); }
+    100% { transform: scale(1.04) translate(-8px, -4px); }
+}
+
+/* Стили главной карточки-визитки */
+.cyber-hub-card {
+    background: rgba(15, 23, 42, 0.75); /* Плотный темный фон для идеальной читаемости */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 10;
+}
+
+/* Обводка вокруг аватарки с неоновым свечением */
+.avatar-ring {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(45deg, #a855f7, #3b82f6);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+}
+
+.main-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cyber-name { 
+    font-size: 2.4em; 
+    margin: 0; 
+    font-weight: 800; 
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.real-name { 
+    font-size: 1.1em; 
+    margin: 3px 0 20px; 
+    opacity: 0.7; 
+    font-weight: 600; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.channel-description { 
+    font-size: 0.98em; 
+    line-height: 1.6; 
+    margin-bottom: 30px; 
+    text-align: justify;
+    text-align-last: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); 
+}
+
+/* Кнопки переходов по соцсетям */
+.links-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.hub-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 1.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hub-btn:hover { 
+    transform: scale(1.02); 
+}
+
+/* Цвета твоих кнопок */
+.vk { background: #0077ff; box-shadow: 0 4px 15px rgba(0, 119, 255, 0.3); }
+.tg { background: #229ED9; box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3); }
+.yt { background: #ff0000; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); }
+.donate { background: #ff7a00; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4); }
+
+.hub-footer { 
+    margin-top: 30px; 
+    font-size: 0.8em; 
+    opacity: 0.4; 
+}
+
+/* Настоящие лепестки сирени из папки */
+.lilac-petal {
+    position: absolute;
+    width: 24px; /* Оптимальный размер лепестка */
+    height: 24px;
+    background: url('petal.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 1;
+}
+
+/* Плавное падение и вращение лепестков */
+@keyframes fall {
+    0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
